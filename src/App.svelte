@@ -1,4 +1,5 @@
 <script type="text/javascript">
+    import "./app.css";
     import {onMount} from 'svelte'
     import {supabase} from './supabaseClient'
     import Account from './lib/Account.svelte'
@@ -18,6 +19,9 @@
 </script>
 
 <div class="container" style="padding: 50px 0 100px 0">
+    <h1 class="text-3xl font-bold underline">
+        Hello world!
+    </h1>
     {#if !session}
         <Auth/>
     {:else}
