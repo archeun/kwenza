@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
     import { supabaseClient } from '$lib/supabaseClient'
     import { invalidate } from '$app/navigation'
     import { onMount } from 'svelte'
