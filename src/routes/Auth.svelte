@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<script>
     import {supabaseClient} from '$lib/supabaseClient'
 
     async function signInWithGoogle() {
