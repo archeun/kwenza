@@ -1,2 +1,3 @@
-# kwenza
-A mobile and offline first to-do list app
+# Kwenza - by ArCheun
+
+A suite of productivity tools - focused on offline experience
