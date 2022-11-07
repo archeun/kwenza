@@ -1,9 +1,10 @@
 <script>
-    import {onMount} from 'svelte'
-    import {supabaseClient} from '$lib/supabaseClient'
+    import {onMount} from 'svelte';
+    import {page} from '$app/stores';
+    import {getUserProfile, updateUserProfile} from "../../../lib/util/Auth.js";
 
-    export let session;
-
+    let session = $page.data.session;
+    let notifications = $page.data.notifications;
     let loading = false
     let username = null
     let avatarUrl = null
@@ -16,61 +17,34 @@
         try {
             loading = true
             const {user} = session
-
-            const {data, error, status} = await supabaseClient
-                .from('profiles')
-                .select(`username, avatar_url`)
-                .eq('id', user.id)
-                .single()
-
+            const data = await getUserProfile(user.id)
             if (data) {
                 username = data.username
                 avatarUrl = data.avatar_url
             }
-
-            if (error && status !== 406) throw error
         } catch (error) {
-            if (error instanceof Error) {
-                alert(error.message)
-            }
+            notifications.danger(
+                'An error occurred when trying to fetch the profile. Please try again later.'
+            )
         } finally {
             loading = false
         }
     }
 
-    async function updateProfile() {
+    const updateProfile = async () => {
         try {
             loading = true
             const {user} = session
-
-            const updates = {
+            await updateUserProfile({
                 id: user.id,
                 username,
                 avatar_url: avatarUrl,
                 updated_at: new Date(),
-            }
-
-            let {error} = await supabaseClient.from('profiles').upsert(updates)
-
-            if (error) throw error
+            });
         } catch (error) {
-            if (error instanceof Error) {
-                alert(error.message)
-            }
-        } finally {
-            loading = false
-        }
-    }
-
-    async function signOut() {
-        try {
-            loading = true
-            let {error} = await supabaseClient.auth.signOut()
-            if (error) throw error
-        } catch (error) {
-            if (error instanceof Error) {
-                alert(error.message)
-            }
+            notifications.danger(
+                'An error occurred when trying to update the profile. Please try again later.'
+            )
         } finally {
             loading = false
         }
@@ -91,9 +65,5 @@
     <div>
         <input type="submit" class="button block primary" value={loading ? 'Loading...' : 'Update'}
                disabled={loading}/>
-    </div>
-
-    <div>
-        <button class="button block" on:click="{signOut}" disabled="{loading}">Sign Out</button>
     </div>
 </form>

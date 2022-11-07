@@ -1,8 +1,7 @@
-import {getServerSession} from '@supabase/auth-helpers-sveltekit'
+import {getServerSession} from "@supabase/auth-helpers-sveltekit";
 
-export const load = async (event) => {
-    const session = await getServerSession(event)
+export async function load(event) {
     return {
-        session: session,
+        session: await getServerSession(event),
     }
 }
