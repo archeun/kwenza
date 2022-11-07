@@ -1,4 +1,4 @@
 import {createClient} from '@supabase/auth-helpers-sveltekit'
-import {env} from '$env/dynamic/public'
+import {SUPABASE_URL, SUPABASE_ANON_KEY} from '$lib/env';
 
-export const supabaseClient = createClient(env.PUBLIC_SUPABASE_URL, env.PUBLIC_SUPABASE_ANON_KEY)
+export const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)

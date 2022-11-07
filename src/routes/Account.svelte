@@ -78,7 +78,7 @@
 </script>
 
 <form class="form-widget" on:submit|preventDefault="{updateProfile}">
-    <img alt="User profile photo" src="{avatarUrl}">
+    <img alt="{username}" src="{avatarUrl}">
     <div>
         <label for="email">Email</label>
         <input id="email" type="text" value="{session.user.email}" disabled/>
