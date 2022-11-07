@@ -1,12 +1,13 @@
 <script>
-    import { supabaseClient } from '$lib/supabaseClient'
-    import { invalidate } from '$app/navigation'
-    import { onMount } from 'svelte'
+    import {supabaseClient} from '$lib/util/supabaseClient'
+    import {invalidate} from '$app/navigation'
+    import {onMount} from 'svelte'
     import '../app.css'
+    import Toast from "../lib/components/Toast.svelte";
 
     onMount(() => {
         const {
-            data: { subscription },
+            data: {subscription},
         } = supabaseClient.auth.onAuthStateChange(() => {
             invalidate('supabase:auth')
         })
@@ -17,6 +18,7 @@
     })
 </script>
 
-<div class="container" style="padding: 50px 0 100px 0">
-    <slot />
+<div style="height: 89.5vh;">
+    <slot/>
 </div>
+<Toast />
