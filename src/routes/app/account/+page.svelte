@@ -51,19 +51,44 @@
     }
 </script>
 
-<form class="form-widget" on:submit|preventDefault="{updateProfile}">
-    <img alt="{username}" src="{avatarUrl}">
-    <div>
-        <label for="email">Email</label>
-        <input id="email" type="text" value="{session.user.email}" disabled/>
+<div class="flex h-full">
+    <div class="flex-none w-40 ml-4">
+        <ul class="menu text-sm border-r border-r w-40 p-2 h-full">
+            <li class="rounded-md mt-4">
+                <a>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                        <path fill-rule="evenodd"
+                              d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z"
+                              clip-rule="evenodd"/>
+                    </svg>
+                    <span>Profile</span>
+                </a>
+            </li>
+        </ul>
     </div>
-    <div>
-        <label for="username">Name</label>
-        <input id="username" type="text" bind:value="{username}"/>
-    </div>
+    <div class="flex-auto w-64">
+        <div class="card rounded-md w-full">
+            <div class="card-body">
+                <h2 class="card-title border-b text-primary pb-2=">Basic Information</h2>
+                <form class="form-widget mt-2" on:submit|preventDefault="{updateProfile}">
+                    <img alt="{username}" src="{avatarUrl}">
+                    <div>
+                        <div class="label font-bold text-sm">Email</div>
+                        <input type="text" value="{session.user.email}" id="email"
+                               class="input input-bordered input-sm w-full max-w-xs" disabled/>
+                    </div>
+                    <div>
+                        <div class="label font-bold text-sm">Name</div>
+                        <input type="text" bind:value="{username}" id="username"
+                               class="input input-bordered input-sm w-full max-w-xs"/>
+                    </div>
+                    <div class="card-actions justify-start mt-5">
+                        <input type="submit" class="btn btn-sm btn-secondary" value={loading ? 'Loading...' : 'Update'}
+                               disabled={loading}/>
+                    </div>
+                </form>
+            </div>
+        </div>
 
-    <div>
-        <input type="submit" class="button block primary" value={loading ? 'Loading...' : 'Update'}
-               disabled={loading}/>
     </div>
-</form>
+</div>

@@ -22,18 +22,18 @@
     })
 </script>
 
-<div class="navbar bg-white drop-shadow-md">
+<div class="navbar bg-white drop-shadow-md z-50 relative">
     <div class="flex-1">
         <img class="bg-white rounded-md p-1.5" alt="Kwenza logo" src={logo}/>
     </div>
     <div class="flex-none gap-2">
         <div class="dropdown dropdown-end">
-            <div tabindex="-1" class="btn btn-ghost btn-circle avatar">
+            <div tabindex="0" class="btn btn-ghost btn-circle avatar">
                 <div class="w-10 rounded-full">
                     <img src="{user.user_metadata.avatar_url}" alt="{user.user_metadata.full_name}"/>
                 </div>
             </div>
-            <ul tabindex="-1" class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+            <ul tabindex="0" class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
                 <li><a href="/app/account">Account</a></li>
                 <li>
                     <button on:click={async () => await signOutUser()}>Logout</button>
@@ -43,9 +43,9 @@
     </div>
 </div>
 
-<div class="flex h-[570px]">
+<div class="flex h-full">
     <div class="flex-none">
-        <ul class="menu bg-primary text-white h-full w-full">
+        <ul class="menu bg-secondary text-white h-full w-full">
             <li>
                 <a href="/app">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
@@ -63,7 +63,7 @@
             </li>
         </ul>
     </div>
-    <div class="flex-auto w-64 p-4">
+    <div class="h-full w-screen">
         <slot/>
     </div>
 </div>

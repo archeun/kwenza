@@ -18,5 +18,7 @@
     })
 </script>
 
-<slot/>
+<div style="height: 89.5vh;">
+    <slot/>
+</div>
 <Toast />
