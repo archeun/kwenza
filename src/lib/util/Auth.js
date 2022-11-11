@@ -8,7 +8,7 @@ import {supabaseClient} from '$lib/util/supabaseClient'
  */
 export const getUserProfile = async (userId) => {
     const {data, error, status} = await supabaseClient
-        .from('profiles')
+        .from('core_user')
         .select(`username, avatar_url`)
         .eq('id', userId)
         .single();
@@ -23,7 +23,7 @@ export const getUserProfile = async (userId) => {
  * @returns {Promise<void>}
  */
 export const updateUserProfile = async (userData) => {
-    let {error} = await supabaseClient.from('profiles').upsert(userData)
+    let {error} = await supabaseClient.from('core_user').upsert(userData)
     if (error) throw error
 }
 
