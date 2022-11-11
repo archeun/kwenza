@@ -28,12 +28,12 @@
     </div>
     <div class="flex-none gap-2">
         <div class="dropdown dropdown-end">
-            <div class="btn btn-ghost btn-circle avatar">
+            <div tabindex="0" class="btn btn-ghost btn-circle avatar">
                 <div class="w-10 rounded-full">
                     <img src="{user.user_metadata.avatar_url}" alt="{user.user_metadata.full_name}"/>
                 </div>
             </div>
-            <ul class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+            <ul tabindex="0" class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
                 <li><a href="/app/account">Account</a></li>
                 <li>
                     <button on:click={async () => await signOutUser()}>Logout</button>
