@@ -1,5 +1,6 @@
 import todoWs from "$lib/app/todo/WebService";
 import {SupabaseClient} from "$lib/core/util/SupabaseClient";
+export const ssr = false;
 
 export const load = async (event) => {
     const todoId = (await event.params).tid;
