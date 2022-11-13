@@ -1,4 +1,4 @@
-import {supabaseClient} from '$lib/util/supabaseClient'
+import {SupabaseClient} from '$lib/util/SupabaseClient'
 
 /**
  * Returns the user from Supabase db matching the given userId
@@ -7,7 +7,7 @@ import {supabaseClient} from '$lib/util/supabaseClient'
  * @returns {Promise<*>}
  */
 export const getUserProfile = async (userId) => {
-    const {data, error, status} = await supabaseClient
+    const {data, error, status} = await SupabaseClient
         .from('core_user')
         .select(`username, avatar_url`)
         .eq('id', userId)
@@ -23,7 +23,7 @@ export const getUserProfile = async (userId) => {
  * @returns {Promise<void>}
  */
 export const updateUserProfile = async (userData) => {
-    let {error} = await supabaseClient.from('core_user').upsert(userData)
+    let {error} = await SupabaseClient.from('core_user').upsert(userData)
     if (error) throw error
 }
 
@@ -33,7 +33,7 @@ export const updateUserProfile = async (userData) => {
  * @returns {Promise<void>}
  */
 export const signOutUser = async () => {
-    let {error} = await supabaseClient.auth.signOut()
+    let {error} = await SupabaseClient.auth.signOut()
     if (error) throw error
 }
 

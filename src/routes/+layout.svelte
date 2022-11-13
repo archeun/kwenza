@@ -1,5 +1,5 @@
 <script>
-    import {supabaseClient} from '$lib/util/supabaseClient'
+    import {SupabaseClient} from '$lib/util/SupabaseClient'
     import {invalidate} from '$app/navigation'
     import {onMount} from 'svelte'
     import '../app.css'
@@ -8,7 +8,7 @@
     onMount(() => {
         const {
             data: {subscription},
-        } = supabaseClient.auth.onAuthStateChange(() => {
+        } = SupabaseClient.auth.onAuthStateChange(() => {
             invalidate('supabase:auth')
         })
 
