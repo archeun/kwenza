@@ -72,14 +72,14 @@
                             </li>
                             {#each menuItem.menuItems as menuItem}
                                 <li class="rounded-md ml-8">
-                                    <div>
+                                    <a href="{menuItem.route}">
                                         {#if menuItem.icon}
                                         <span class="w-4 h-4">
                                             <svelte:component this={menuItem.icon}/>
                                         </span>
                                         {/if}
                                         <span>{menuItem.name}</span>
-                                    </div>
+                                    </a>
                                 </li>
                             {/each}
                         {/each}
