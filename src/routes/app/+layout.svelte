@@ -6,6 +6,7 @@
     import logo from '$lib/assets/navbar-logo.png';
     import '../../app.css'
     import {signOutUser} from "$lib/core/util/Auth";
+    import {Icons} from "$lib/core/util/Icons";
 
     const user = $page.data.session.user;
 
@@ -48,7 +49,9 @@
             {#each $page.data.menu.MainLeft.menuItems as menuItem}
                 <li>
                     <a href="{menuItem.route}">
-                        {@html menuItem.icon}
+                        <span class="w-5 h-5">
+                            <svelte:component this={Icons[menuItem.icon]}/>
+                        </span>
                     </a>
                 </li>
             {/each}
@@ -64,7 +67,7 @@
                                 <div>
                                     {#if menuItem.headingIcon}
                                         <span class="w-4 h-4">
-                                            <svelte:component this={menuItem.headingIcon}/>
+                                            <svelte:component this={Icons[menuItem.headingIcon]}/>
                                         </span>
                                     {/if}
                                     {menuItem.heading}
@@ -75,7 +78,7 @@
                                     <a href="{menuItem.route}">
                                         {#if menuItem.icon}
                                         <span class="w-4 h-4">
-                                            <svelte:component this={menuItem.icon}/>
+                                            <svelte:component this={Icons[menuItem.icon]}/>
                                         </span>
                                         {/if}
                                         <span>{menuItem.name}</span>
