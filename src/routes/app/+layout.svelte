@@ -43,7 +43,7 @@
     </div>
 </div>
 
-<div class="flex h-full">
+<div class="flex min-h-full h-fit">
     <div class="flex-none">
         <ul class="menu bg-secondary text-white h-full w-full">
             {#each $page.data.menu.MainLeft.menuItems as menuItem}

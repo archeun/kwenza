@@ -7,9 +7,20 @@ const todoWs = (SupabaseClient) => {
             if (error && status !== 406) throw error;
             return data;
         }
-    }
+    };
+    const Todo = {
+        fetchAllForUserForBoard: async function (boardId) {
+            const {data, error, status} = await SupabaseClient
+                .from('todo_todo_item')
+                .select(`id, name, is_completed, due_at`)
+                .eq('board_id', boardId)
+                .order('due_at');
+            if (error && status !== 406) throw error;
+            return data;
+        }
+    };
 
-    return {Board}
+    return {Board, Todo}
 }
 
 export default todoWs;

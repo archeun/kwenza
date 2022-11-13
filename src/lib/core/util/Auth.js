@@ -4,12 +4,13 @@ import {SupabaseClient} from '$lib/core/util/SupabaseClient'
  * Returns the user from Supabase db matching the given userId
  *
  * @param userId
+ * @param supabaseClient
  * @returns {Promise<*>}
  */
-export const getUserProfile = async (userId) => {
-    const {data, error, status} = await SupabaseClient
+export const getUserProfile = async (userId, supabaseClient = SupabaseClient) => {
+    const {data, error, status} = await supabaseClient
         .from('core_user')
-        .select(`username, avatar_url`)
+        .select(`username, avatar_url, global_settings`)
         .eq('id', userId)
         .single();
     if (error && status !== 406) throw error;
