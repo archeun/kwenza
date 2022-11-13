@@ -9,5 +9,8 @@ export const load = async (event) => {
     } else if (session && event.route.id === '/') {
         throw redirect(302, '/app');
     }
+    if (typeof localStorage !== 'undefined' && event.data.globalSettings) {
+        localStorage.setItem('global-settings', JSON.stringify(event.data.globalSettings))
+    }
     return {session, notifications}
 }

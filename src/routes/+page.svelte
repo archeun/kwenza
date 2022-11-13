@@ -1,7 +1,7 @@
 <script>
     import {page} from '$app/stores'
     import bannerLogo from '$lib/assets/banner-logo.png';
-    import GoogleSignInButton from "../lib/components/GoogleSignInButton.svelte";
+    import GoogleSignInButton from "$lib/core/components/GoogleSignInButton.svelte";
 </script>
 
 {#if !$page.data.session}

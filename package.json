@@ -31,6 +31,8 @@
     "dependencies": {
         "@supabase/auth-helpers-sveltekit": "^0.8.6",
         "@supabase/supabase-js": "^2.0.5",
-        "daisyui": "^2.38.1"
+        "daisyui": "^2.38.1",
+        "moment": "^2.29.4",
+        "svelte-icons": "^2.1.0"
     }
 }

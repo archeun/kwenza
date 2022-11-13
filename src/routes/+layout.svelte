@@ -1,14 +1,14 @@
 <script>
-    import {supabaseClient} from '$lib/util/supabaseClient'
+    import {SupabaseClient} from '$lib/core/util/SupabaseClient'
     import {invalidate} from '$app/navigation'
     import {onMount} from 'svelte'
     import '../app.css'
-    import Toast from "../lib/components/Toast.svelte";
+    import Toast from "$lib/core/components/Toast.svelte";
 
     onMount(() => {
         const {
             data: {subscription},
-        } = supabaseClient.auth.onAuthStateChange(() => {
+        } = SupabaseClient.auth.onAuthStateChange(() => {
             invalidate('supabase:auth')
         })
 
