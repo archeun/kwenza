@@ -1,4 +1,4 @@
-import {MainLeftMenu} from '$lib/util/Menu';
+import {MainLeftMenu} from '$lib/core/util/Menu';
 
 export const load = async (event) => {
     return {

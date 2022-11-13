@@ -1,11 +1,11 @@
 <script>
-    import {SupabaseClient} from '$lib/util/SupabaseClient'
+    import {SupabaseClient} from '$lib/core/util/SupabaseClient'
     import {page} from '$app/stores'
     import {invalidate} from '$app/navigation'
     import {onMount} from 'svelte'
     import logo from '$lib/assets/navbar-logo.png';
     import '../../app.css'
-    import {signOutUser} from "../../lib/util/Auth.js";
+    import {signOutUser} from "$lib/core/util/Auth";
 
     const user = $page.data.session.user;
 

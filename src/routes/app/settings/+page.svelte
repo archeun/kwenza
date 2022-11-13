@@ -1,7 +1,7 @@
 <script>
     import {onMount} from 'svelte';
     import {page} from '$app/stores';
-    import {getUserProfile, updateUserProfile} from "../../../lib/util/Auth.js";
+    import {getUserProfile, updateUserProfile} from "$lib/core/util/Auth";
 
     let session = $page.data.session;
     let notifications = $page.data.notifications;

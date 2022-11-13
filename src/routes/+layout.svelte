@@ -1,9 +1,9 @@
 <script>
-    import {SupabaseClient} from '$lib/util/SupabaseClient'
+    import {SupabaseClient} from '$lib/core/util/SupabaseClient'
     import {invalidate} from '$app/navigation'
     import {onMount} from 'svelte'
     import '../app.css'
-    import Toast from "../lib/components/Toast.svelte";
+    import Toast from "$lib/core/components/Toast.svelte";
 
     onMount(() => {
         const {

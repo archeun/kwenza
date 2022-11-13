@@ -1,5 +1,5 @@
 <script>
-    import {SupabaseClient} from '$lib/util/SupabaseClient'
+    import {SupabaseClient} from '$lib/core/util/SupabaseClient'
 
     async function signInWithGoogle() {
         const {data, error} = await SupabaseClient.auth.signInWithOAuth({

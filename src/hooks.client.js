@@ -1,1 +1,1 @@
-import '$lib/util/SupabaseClient'
+import '$lib/core/util/SupabaseClient'

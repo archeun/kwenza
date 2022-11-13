@@ -1,4 +1,4 @@
-import {SupabaseClient} from '$lib/util/SupabaseClient'
+import {SupabaseClient} from '$lib/core/util/SupabaseClient'
 
 /**
  * Returns the user from Supabase db matching the given userId
